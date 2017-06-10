@@ -1,8 +1,8 @@
 
-<script type="text/javascript">
+<script>
 	var pos = 0;
 	var correct = 0;
-	var test, test_status, question, choice, choices, chA, chB, chC;
+	var test, test_status, question, choice, choices, chA, chB, chC, chD;
 
 	var questions = [
 		["Who won the World Series in 2016?", "Chicago Cubs", "Chicago White Sox", "Cleveland Indians", "New York Yankees", "A"],
@@ -34,11 +34,13 @@
 		chA = questions[pos][1];
 		chB = questions[pos][2];
 		chC = questions[pos][3];
+		chD = questions[pos][4];
 		test.innerHTML = "<h3>"+question+"</h3>";
 		// the += appends to the data we started on the line above
 		test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
 		test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
-		test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+		test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br>";
+		test.innerHTML += "<input type='radio' name='choices' value='D'> "+chD+"<br><br>";
 		test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
 	}
 	
@@ -51,7 +53,7 @@
 			}
 		}
 		// checks if answer matches the correct choice
-		if(choice == questions[pos][4]){
+		if(choice == questions[pos][5]){
 			//each time there is a correct answer this value increases
 			correct++;
 		}
