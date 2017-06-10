@@ -1,3 +1,25 @@
+//  Execute this code when the DOM has fully loaded.
+//		$(document).ready(function() {
+
+
+// VARIABLE DECLARATION
+
+// 	Creating an object to hold questions.
+
+//		var questions = {var questions = [
+//		["Who won the World Series in 2016?", "Chicago Cubs", "Chicago White Sox", "Cleveland Indians", "New York Yankees", "A"],
+//		["Who is the highest paid athlete in 2017?", "Lebron James", "Rory McIlroy", "Chrisiano Ronaldo", "Kevin Durant", "C"],
+//		["How long has Chicago been under Democratic Control?", "100 years", "84 years", "15 years", "8 years", "B"],
+//		["What is the area of Chicago in square miles?", "9", "63", "115", "237", "D"],
+//		["How many Presidents' has the US sworn into office?", "40", "42", "44", "45", "D"],
+		
+//		];
+//	}
+//		})		
+//
+
+
+
 var pos = 0;
 var correct = 0;
 var test, test_status, question, choice, choices, chA, chB, chC, chD;
