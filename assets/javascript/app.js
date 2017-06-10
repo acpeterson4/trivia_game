@@ -1,10 +1,8 @@
+var pos = 0;
+var correct = 0;
+var test, test_status, question, choice, choices, chA, chB, chC, chD;
 
-<script>
-	var pos = 0;
-	var correct = 0;
-	var test, test_status, question, choice, choices, chA, chB, chC, chD;
-
-	var questions = [
+var questions = [
 		["Who won the World Series in 2016?", "Chicago Cubs", "Chicago White Sox", "Cleveland Indians", "New York Yankees", "A"],
 		["Who is the Mayor of Chicago?", "Mike Maddigan", "Rahm Emanuel", "Donald Trump", "Rod Blagojevich", "B"],
 		["Who is the highest paid athlete in 2017?", "Lebron James", "Rory McIlroy", "Chrisiano Ronaldo", "Kevin Durant", "C"],
@@ -14,11 +12,11 @@
 		
 		];
 		
-	function get (x) {
+function get (x) {
 		return document.getElementById(x);
 	}
 	
-	function renderQuestion(){
+function renderQuestion(){
 		test = get("test");
 		if(pos >= questions.length){
 			test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
@@ -27,7 +25,7 @@
 			pos = 0;
 			correct = 0;
 			// stops rest of renderQuestion function running when test is completed
-			return false;
+		return false;
 		}
 		get("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
 		question = questions[pos][0];
@@ -44,7 +42,7 @@
 		test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
 	}
 	
-	function checkAnswer(){
+function checkAnswer(){
 		// use getElementsByName because we have an array which it will loop through
 		choices = document.getElementsByName("choices");
 		for(var i=0; i<choices.length; i++){
@@ -63,6 +61,5 @@
 		renderQuestion();
 	}
 
-	window.addEventListener("load", renderQuestion, false);
+window.addEventListener("load", renderQuestion, false);
 
-</script>
