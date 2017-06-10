@@ -10,6 +10,8 @@
 		["Who is the highest paid athlete in 2017?", "Lebron James", "Rory McIlroy", "Chrisiano Ronaldo", "Kevin Durant", "C"],
 		["How long has Chicago been under Democratic Control?", "100 years", "84 years", "15 years", "8 years", "B"],
 		["What is the area of Chicago in square miles?", "9", "63", "115", "237", "D"],
+		["How many Presidents' has the US sworn into office?", "40", "42", "44", "45", "D"],
+		
 		];
 		
 	function get (x) {
@@ -59,6 +61,6 @@
 		renderQuestion();
 	}
 
-
+	window.addEventListener("load", renderQuestion, false);
 
 </script>
