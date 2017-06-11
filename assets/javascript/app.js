@@ -64,9 +64,9 @@ function checkAnswer(){
 			//each time there is a correct answer this value increases
 			correct++;
 		}
-		// changes position of which character user is on
+		
 		pos++;
-		// then the renderQuestion function runs again to go to next question
+
 		renderQuestion();
 	}
 
@@ -74,21 +74,5 @@ window.addEventListener("load", renderQuestion, false);
 
 // MAIN PROCESSES
 
-var readyTime;
- 
-$(function() {
-    readyTime = jQuery.now();
-});
- 
-$.afterDOMReady = $.createCache(function( defer, delay ) {
-    delay = delay || 0;
-    $(function() {
-        var delta = $.now() - readyTime;
-        if ( delta >= delay ) {
-            defer.resolve();
-        } else {
-            setTimeout( defer.resolve, delay - delta );
-        }
-    });
-});
+
 
