@@ -1,29 +1,13 @@
 //  Execute this code when the DOM has fully loaded.
 //		$(document).ready(function() {
 
-
-// VARIABLE DECLARATION
-
-// 	Creating an object to hold questions.
-
-//		var questions = {var questions = [
-//		["Who won the World Series in 2016?", "Chicago Cubs", "Chicago White Sox", "Cleveland Indians", "New York Yankees", "A"],
-//		["Who is the highest paid athlete in 2017?", "Lebron James", "Rory McIlroy", "Chrisiano Ronaldo", "Kevin Durant", "C"],
-//		["How long has Chicago been under Democratic Control?", "100 years", "84 years", "15 years", "8 years", "B"],
-//		["What is the area of Chicago in square miles?", "9", "63", "115", "237", "D"],
-//		["How many Presidents' has the US sworn into office?", "40", "42", "44", "45", "D"],
-		
-//		];
-//	}
-//		})		
-//
-
-
+// VARIABLES
 
 var pos = 0;
 var correct = 0;
 var test, test_status, question, choice, choices, chA, chB, chC, chD;
 
+//it would be nice to have the questions come up in random order upon page refresh
 var questions = [
 		["Who won the World Series in 2016?", "Chicago Cubs", "Chicago White Sox", "Cleveland Indians", "New York Yankees", "A"],
 		["Who is the Mayor of Chicago?", "Mike Maddigan", "Rahm Emanuel", "Donald Trump", "Rod Blagojevich", "B"],
@@ -33,7 +17,10 @@ var questions = [
 		["How many Presidents' has the US sworn into office?", "40", "42", "44", "45", "D"],
 		
 		];
-		
+
+
+// FUNCTIONS
+
 function get (x) {
 		return document.getElementById(x);
 	}
@@ -42,7 +29,7 @@ function renderQuestion(){
 		test = get("test");
 		if(pos >= questions.length){
 			test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
-			get("test_status").innerHTML = "Test completed";
+			get("test_status").innerHTML = "Game Over";
 			// resets the variable to allow users to restart the test
 			pos = 0;
 			correct = 0;
@@ -84,4 +71,24 @@ function checkAnswer(){
 	}
 
 window.addEventListener("load", renderQuestion, false);
+
+// MAIN PROCESSES
+
+var readyTime;
+ 
+$(function() {
+    readyTime = jQuery.now();
+});
+ 
+$.afterDOMReady = $.createCache(function( defer, delay ) {
+    delay = delay || 0;
+    $(function() {
+        var delta = $.now() - readyTime;
+        if ( delta >= delay ) {
+            defer.resolve();
+        } else {
+            setTimeout( defer.resolve, delay - delta );
+        }
+    });
+});
 
